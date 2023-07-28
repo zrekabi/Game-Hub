@@ -3,10 +3,16 @@ import apiClient from "../services/api-client";
 import { Img,Text } from "@chakra-ui/react";
 import { CanceledError } from "axios";
 
+export interface platform{
+  id:number;
+  name:string;
+  slug:string
+}
 export interface Game {
   id: number;
   name: string;
   background_image:string
+  parent_platforms:{platform:platform}[]
 }
 
 interface FetchGameResponse {
