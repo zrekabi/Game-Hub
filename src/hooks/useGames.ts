@@ -1,17 +1,18 @@
 import useData from "./useData";
 import { Genre } from "./useGenres";
+import { Platform } from "./usePlatforms";
 
-export interface platform{
-  id:number;
-  name:string;
-  slug:string
+export interface platform {
+  id: number;
+  name: string;
+  slug: string;
 }
 export interface Game {
   id: number;
   name: string;
-  background_image:string
-  parent_platforms:{platform:platform}[]
-  metacritic:number
+  background_image: string;
+  parent_platforms: { platform: platform }[];
+  metacritic: number;
 }
 
 interface FetchGameResponse {
@@ -19,5 +20,10 @@ interface FetchGameResponse {
   results: Game[];
 }
 
-const useGames = (genre:Genre|null) => useData<Game>('/games',{params:{genres:genre?.id}},[genre?.id])
+const useGames = (genre: Genre | null, platform: Platform | null) =>
+  useData<Game>(
+    "/games",
+    { params: { genres: genre?.id, platforms: platform?.id } },
+    [genre?.id, platform?.id]
+  );
 export default useGames;
