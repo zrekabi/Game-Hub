@@ -21,10 +21,18 @@ interface FetchGameResponse {
   results: Game[];
 }
 
-const useGames = (gameQuery:GameQuery) =>
+const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
-    { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id ,ordering:gameQuery.sortOrder} },
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
+        search:gameQuery.search
+        
+      },
+    },
     [gameQuery]
   );
 export default useGames;

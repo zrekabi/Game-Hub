@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import NavBar from "./Components/NavBar";
 import GameGrid from "./Components/GameGrid";
 import GenresList from "./Components/GenresList";
-import SortSelector from "./Components/sortSelector";
+import SortSelector from "./Components/SortSelector";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./Components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
@@ -12,6 +12,7 @@ export interface GameQuery{
   genre:Genre|null
   platform:Platform |null
   sortOrder:string
+  search:string
 
 }
 
@@ -24,7 +25,7 @@ const App = () => {
         templateColumns={{base:'1fr' ,lg:'250px 1fr'}}
       >
         <GridItem area={"nav"}>
-          <NavBar></NavBar>
+          <NavBar onSearch={search=>setGameQuery({...gameQuery,search})}></NavBar>
         </GridItem>
         <Show above="lg">
           <GridItem area={"aside"} padding={'5px'}>
