@@ -8,6 +8,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./Components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import GameHeading from "./Components/GameHeading";
+import Emoji from "./Components/Emoji";
 
 export interface GameQuery{
   genre:Genre|null
@@ -46,6 +47,7 @@ const App = () => {
 
         </GridItem>
       </Grid>
+      
     </>
   );
 };
