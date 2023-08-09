@@ -1,7 +1,5 @@
 import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
-import { Platform } from "./usePlatforms";
 
 export interface platform {
   id: number;
@@ -17,10 +15,7 @@ export interface Game {
   rating_top:number
 }
 
-interface FetchGameResponse {
-  count: number;
-  results: Game[];
-}
+
 
 const useGames = (gameQuery: GameQuery) =>
   useData<Game>(

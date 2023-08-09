@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import NavBar from "./Components/NavBar";
 import GameGrid from "./Components/GameGrid";
 import GenresList from "./Components/GenresList";
@@ -8,7 +8,6 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./Components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import GameHeading from "./Components/GameHeading";
-import Emoji from "./Components/Emoji";
 
 export interface GameQuery{
   genre:Genre|null
